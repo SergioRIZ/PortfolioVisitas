@@ -1,0 +1,75 @@
+.header {
+  background: #0f172a;
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #0f172a;
+}
+
+/* Responsive para Header */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .header-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 2rem 0;
+  }
+
+  .main-title {
+    font-size: 1.75rem;
+  }
+}
