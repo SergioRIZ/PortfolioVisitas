@@ -22,6 +22,209 @@
   font-size: 1rem;
 }
 
+/* Estilos para el carrusel de desarrolladores */
+.developer-carousel {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 0.5rem;
+  position: relative;
+  min-height: 20rem;
+}
+
+.nav-arrow {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 3.125rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+}
+
+.nav-arrow:hover {
+  background: white;
+  transform: scale(1.1);
+  box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.2);
+}
+
+.nav-arrow svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #667eea;
+}
+
+.developer-card {
+  flex: 1;
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.875rem;
+  text-align: center;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(1.25rem); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.developer-image {
+  margin-bottom: 1.25rem;
+}
+
+.developer-image img {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.25rem solid #667eea;
+  box-shadow: 0 0.25rem 1rem rgba(102, 126, 234, 0.3);
+}
+
+.developer-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 0.625rem 0 0.3125rem 0;
+}
+
+.developer-role {
+  font-size: 1.1rem;
+  color: #667eea;
+  font-weight: 600;
+  margin: 0 0 0.3125rem 0;
+}
+
+.developer-speciality {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
+  margin: 0 0 0.9375rem 0;
+}
+
+.developer-description {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.developer-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.skill-badge {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.skill-badge:hover {
+  transform: translateY(-1px);
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
+}
+
+.indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: none;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #667eea;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: #475569;
+}
+
+/* Responsive para el carrusel */
+@media (max-width: 768px) {
+  .developer-carousel {
+    flex-direction: column;
+    gap: 0.9375rem;
+    padding: 0.9375rem;
+    min-height: 18rem;
+  }
+
+  .nav-arrow {
+    order: 3;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .nav-arrow-left {
+    order: 1;
+  }
+
+  .nav-arrow-right {
+    order: 2;
+  }
+
+  .developer-card {
+    order: 0;
+    padding: 1.25rem;
+  }
+
+  .developer-image img {
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+
+  .developer-name {
+    font-size: 1.25rem;
+  }
+
+  .developer-role {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .developer-carousel {
+    min-height: 16rem;
+  }
+
+  .developer-image img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .developer-description {
+    font-size: 0.875rem;
+  }
+}
 
 .description {
   font-size: 1.125rem;
