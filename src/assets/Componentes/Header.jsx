@@ -2,56 +2,63 @@ import React, { useEffect, useState } from 'react';
 import './Header.css';
 
 const Header = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Detectar si hemos hecho scroll (más de 100px para activar el header fijo)
-      if (currentScrollY > 100) {
+      // Detectar si hemos pasado del header original (umbral de scroll)
+      const scrollThreshold = 50; // Ajusta este valor según necesites
+      
+      if (currentScrollY > scrollThreshold) {
         setIsScrolled(true);
+        setIsNavVisible(true);
       } else {
         setIsScrolled(false);
+        setIsNavVisible(false);
       }
       
-      // Lógica de visibilidad del header cuando está en modo fijo
-      if (isScrolled) {
-        // Si estamos en la parte superior (primeros 200px), mostrar header
-        if (currentScrollY < 200) {
-          setIsVisible(true);
-        } 
-        // Si scrolleamos hacia abajo más de 200px, ocultar header
-        else if (currentScrollY > lastScrollY && currentScrollY > 200) {
-          setIsVisible(false);
+      // Lógica para ocultar/mostrar el nav fijo cuando scrolleamos hacia abajo/arriba
+      // Solo aplicamos esta lógica cuando ya estamos en modo scrolled
+      if (currentScrollY > scrollThreshold) {
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          // Scrolleando hacia abajo - ocultar nav
+          setIsNavVisible(false);
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolleando hacia arriba - mostrar nav
+          setIsNavVisible(true);
         }
-        // Si scrolleamos hacia arriba, mostrar header
-        else if (currentScrollY < lastScrollY) {
-          setIsVisible(true);
-        }
-      } else {
-        // Cuando estamos en el header original, siempre visible
-        setIsVisible(true);
       }
       
       setLastScrollY(currentScrollY);
     };
 
-    // Añadir el event listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // Cleanup: remover el event listener cuando el componente se desmonte
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    // Añadir el event listener con throttling para mejor performance
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-  }, [lastScrollY, isScrolled]);
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);
+    };
+  }, [lastScrollY]);
 
   return (
     <>
-      {/* Header original */}
-      <header className="header">
+      {/* Header original - se oculta completamente cuando isScrolled es true */}
+      <header className={`header ${isScrolled ? 'header-hidden' : ''}`}>
         <div className="container">
           <h1 className="main-title">
             <span className="typing" data-text="Visitas Virtuales 360º">
@@ -60,15 +67,22 @@ const Header = () => {
           </h1>
 
           <div className="header-buttons">
+            {/* Aquí puedes añadir tus botones */}
           </div>
         </div>
       </header>
 
-      {/* Header fijo que aparece al hacer scroll */}
-      <div className={`fixed-header ${isScrolled ? 'active' : ''} ${!isVisible ? 'hidden' : ''}`}>
+      {/* Header fijo - aparece cuando hacemos scroll */}
+      <div className={`fixed-header ${isScrolled && isNavVisible ? 'active' : ''}`}>
         <div className="fixed-header-container">
           <div className="fixed-header-content">
             <h2 className="fixed-title">Visitas Virtuales 360º</h2>
+            <nav className="fixed-nav">
+              <a href="#inicio" className="nav-link">Inicio</a>
+              <a href="#servicios" className="nav-link">Servicios</a>
+              <a href="#galeria" className="nav-link">Galería</a>
+              <a href="#contacto" className="nav-link">Contacto</a>
+            </nav>
           </div>
         </div>
       </div>
