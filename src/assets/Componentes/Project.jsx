@@ -4,7 +4,7 @@ const Projects = () => {
   const projects = [
     {
       title: "Proyecto 1",
-      description: "Aplicación desarrolladapara realizar un tour virtual 360º.",
+      description: "Aplicación desarrollada para realizar un tour virtual 360º.",
       tech: ["Unity", "C#",]
     }
   ];
@@ -17,7 +17,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div key={index} className="project-card">
               <div className="project-image">
-                <span>Imagen del proyecto</span>
+                <span>Imagen y link del proyecto</span>
               </div>
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>

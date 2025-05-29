@@ -38,17 +38,17 @@ const About = () => {
       role: "Mobile Developer",
       description: "Especialista en desarrollo móvil y optimización multiplataforma. Asegura que nuestros juegos funcionen perfectamente en todos los dispositivos.",
       speciality: "Mobile & Cross-platform",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
+      image: "/src/assets/Imagenes/Manu.jpg",
       skills: ["Mobile Development", "Cross-platform", "Performance", "Unity Cloud Build"]
     },
     {
       id: 5,
-      name: "Sergio Roldan Ibañez",
-      role: "Graphics Developer",
-      description: "Experto en shaders, iluminación y efectos visuales. Responsable de que nuestros juegos tengan el mejor aspecto visual posible.",
-      speciality: "Shaders & Visual Effects",
+      name: "Sergio Roldan",
+      role: "Developer",
+      description: "Desarrollador con experiencia en React y Unity. Crear interfaces web interactivas y sistemas de visitas virtuales 360º.",
+      speciality: "React & Unity",
       image: "/src/assets/Imagenes/Sergi.jpg",
-      skills: ["HLSL", "Shaders", "VFX", "Lighting"]
+      skills: ["React","JavaScript","HTML5","CSS","Github","Unity","C#"]
     },
     {
       id: 6,
@@ -144,9 +144,9 @@ const About = () => {
           <div className="about-text">
             <div className="about-card">
               <p className="description">
-                Somos un equipo de <strong>8 desarrolladores apasionados</strong> por la creación de videojuegos y experiencias interactivas. 
-                Especializados en <strong>Unity y C#</strong>, combinamos creatividad técnica con innovación para dar vida a proyectos únicos 
-                que desafían los límites de lo posible en el mundo digital.
+                Somos un equipo encargado en la creación de experiencias inmersivas y visitas virtuales 360º. 
+                Transformamos espacios reales en recorridos digitales interactivos, combinando tecnología de vanguardia 
+                con diseño intuitivo para ofrecer experiencias únicas que conectan a las personas con lugares increíbles desde cualquier parte del mundo.
               </p>
               <div className="team-stats">
                 <div className="stat-item">
@@ -154,12 +154,12 @@ const About = () => {
                   <span className="stat-label">Desarrolladores</span>
                 </div>
                 <div className="stat-item">
-                  <span className="stat-number">Unity</span>
-                  <span className="stat-label">Motor Principal</span>
+                  <span className="stat-number">1+</span>
+                  <span className="stat-label">Años Experiencia</span>
                 </div>
                 <div className="stat-item">
-                  <span className="stat-number">C#</span>
-                  <span className="stat-label">Lenguaje Core</span>
+                  <span className="stat-number">1+</span>
+                  <span className="stat-label">Proyectos</span>
                 </div>
               </div>
               <div className="skills-section">
@@ -168,9 +168,11 @@ const About = () => {
                   {[
                     'Unity 3D', 
                     'C#', 
-                    'UI/UX', 
+                    'HLSL Shaders',
+                    'UI/UX Design', 
                     'Git',  
-                    'Mobile Dev'
+                    'Mobile Dev',
+                    'Audio Systems'
                   ].map((skill) => (
                     <span key={skill} className="skill-tag">
                       {skill}
