@@ -3,13 +3,14 @@
   background: white;
 }
 
+/* Ajustar el grid para que las columnas tengan la misma altura */
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  grid-template-columns: 0.8fr 0.8fr; /* Hacer las columnas más estrechas */
+  gap: 4rem; /* Aumentar el gap para compensar */
+  align-items: start;
+  justify-content: center; /* Centrar el contenido en el contenedor */
 }
-
 
 .image-placeholder {
   background: #e2e8f0;
@@ -22,6 +23,13 @@
   font-size: 1rem;
 }
 
+/* Hacer que about-image ocupe toda la altura disponible */
+.about-image {
+  display: flex;
+  flex-direction: column;
+  height: auto; /* Cambiar a auto */
+}
+
 /* Estilos para el carrusel de desarrolladores */
 .developer-carousel {
   display: flex;
@@ -29,9 +37,9 @@
   gap: 1.25rem;
   padding: 1.25rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   position: relative;
-  min-height: 20rem;
+  height: 32rem; /* Aumentar altura */
 }
 
 .nav-arrow {
@@ -39,7 +47,7 @@
   border: none;
   border-radius: 50%;
   width: 3.125rem;
-  height: 3.125rem;
+  height: 2.125rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,19 +63,23 @@
 }
 
 .nav-arrow svg {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2.5rem;
   color: #667eea;
 }
 
 .developer-card {
-  flex: 1;
   background: white;
   border-radius: 0.75rem;
-  padding: 1.875rem;
+  padding: 1.75rem; /* Aumentar padding ligeramente */
   text-align: center;
   box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s ease-in-out;
+  height: calc(100% - 1.5rem); /* Ajustar altura para que quepa dentro del carrusel más alto */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; /* Evitar que el contenido se desborde */
 }
 
 @keyframes fadeIn {
@@ -82,44 +94,84 @@
 }
 
 .developer-image {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem; /* Aumentar margen */
 }
 
 .developer-image img {
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 7rem; /* Aumentar ligeramente el tamaño de imagen */
+  height: 7rem; /* Aumentar ligeramente el tamaño de imagen */
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 20%; /* Centra horizontalmente y posiciona el 20% desde arriba */
   border: 0.25rem solid #667eea;
   box-shadow: 0 0.25rem 1rem rgba(102, 126, 234, 0.3);
 }
 
+/* Ajustes individuales para cada imagen */
+.developer-image img[src*="Ricardo"] {
+  object-position: center 15%;
+}
+
+.developer-image img[src*="Eva"] {
+  object-position: center 15%;
+}
+
+.developer-image img[src*="Pedro"] {
+  object-position: center 15%;
+}
+
+.developer-image img[src*="Manu"] {
+  object-position: center 15%;
+}
+
+.developer-image img[src*="Sergi"] {
+  object-position: center 10%;
+}
+
+.developer-image img[src*="Miguel"] {
+  object-position: center 15%;
+}
+
+.developer-image img[src*="Carlos"] {
+  object-position: center 20%;
+}
+
+.developer-image img[src*="Jesus"] {
+  object-position: center 30%;
+}
+
+/* Para imágenes de Unsplash (que tienen URLs específicas) */
+.developer-image img[src*="unsplash"] {
+  object-position: center 25%;
+}
+
 .developer-name {
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Reducir tamaño */
   font-weight: bold;
   color: #1f2937;
-  margin: 0.625rem 0 0.3125rem 0;
+  margin: 0.2rem 0 0.25rem 0; /* Reducir márgenes */
 }
 
 .developer-role {
-  font-size: 1.1rem;
+  font-size: 1rem; /* Reducir tamaño */
   color: #667eea;
   font-weight: 600;
-  margin: 0 0 0.3125rem 0;
+  margin: 0 0 0.25rem 0; /* Reducir márgenes */
 }
 
 .developer-speciality {
-  font-size: 0.9rem;
+  font-size: 0.85rem; /* Reducir tamaño */
   color: #64748b;
   font-style: italic;
-  margin: 0 0 0.9375rem 0;
+  margin: 0 0 0.75rem 0; /* Reducir márgenes */
 }
 
 .developer-description {
-  font-size: 0.95rem;
+  font-size: 0.9rem; /* Aumentar ligeramente el tamaño */
   color: #475569;
-  line-height: 1.6;
-  margin-bottom: 1.25rem;
+  line-height: 1.4; /* Aumentar line-height */
+  margin-bottom: 1.5rem; /* Aumentar margen */
+  flex-grow: 1; /* Para que ocupe el espacio disponible */
 }
 
 .developer-skills {
@@ -127,16 +179,19 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
+  min-height: 3rem; /* Altura mínima fija para 2 filas de skills */
+  align-content: flex-start; /* Alinear el contenido al inicio del contenedor */
 }
 
 .skill-badge {
   background: #dbeafe;
   color: #1e40af;
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 9999px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
   transition: transform 0.2s ease;
+  height: fit-content; /* Altura ajustada al contenido */
 }
 
 .skill-badge:hover {
@@ -169,13 +224,121 @@
   background: #475569;
 }
 
+/* Hacer que about-text también ocupe toda la altura */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  height: auto; /* Cambiar a auto */
+}
+
+/* La card debe ocupar toda la altura disponible */
+.about-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.875rem;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 32rem; /* Misma altura aumentada que el carrusel */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Ajustar el contenido dentro de la card */
+.about-card .description {
+  flex-shrink: 0; /* No se encoge */
+  font-size: 1.125rem;
+  color: #475569;
+  margin-bottom: 2rem; /* Más espacio para equilibrar */
+  line-height: 1.7;
+}
+
+.about-card .team-stats {
+  flex-shrink: 0; /* No se encoge */
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #667eea;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.about-card .skills-section {
+  flex-grow: 1; /* Ocupa el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Empuja las skills hacia abajo */
+}
+
+.skills-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-1px);
+}
+
 /* Responsive para el carrusel */
 @media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-items: center; /* Cambiar de vuelta a center en móvil */
+  }
+  
+  .about-image,
+  .about-text {
+    height: auto; /* Permitir altura automática en móvil */
+  }
+  
+  .developer-carousel,
+  .about-card {
+    flex: none; /* Quitar flex en móvil */
+    height: auto; /* Permitir altura automática en móvil */
+  }
+
   .developer-carousel {
     flex-direction: column;
     gap: 0.9375rem;
     padding: 0.9375rem;
-    min-height: 18rem;
+    min-height: 18rem; /* Volver a min-height en móvil */
+    height: auto; /* Permitir altura automática en móvil */
   }
 
   .nav-arrow {
@@ -209,9 +372,17 @@
   .developer-role {
     font-size: 1rem;
   }
+
+  .image-placeholder {
+    height: 15rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .about-section {
+    padding: 2rem 0;
+  }
+
   .developer-carousel {
     min-height: 16rem;
   }
@@ -224,107 +395,8 @@
   .developer-description {
     font-size: 0.875rem;
   }
-}
-
-.description {
-  font-size: 1.125rem;
-  color: #475569;
-  margin-bottom: 1.5rem;
-  line-height: 1.7;
-}
-
-.skills-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #1f2937;
-}
-
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.skill-tag {
-  background: #dbeafe;
-  color: #1e40af;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: transform 0.2s ease;
-}
-
-.skill-tag:hover {
-  transform: translateY(-1px);
-}
-
-/* Responsive para About */
-@media (max-width: 768px) {
-  .about-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .image-placeholder {
-    height: 15rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-section {
-    padding: 2rem 0;
-  }
 
   .description {
     font-size: 1rem;
   }
-}
-
-.developer-image img {
-  width: 7.5rem;
-  height: 7.5rem;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top; /* Centra horizontalmente y posiciona en la parte superior */
-  border: 0.25rem solid #667eea;
-  box-shadow: 0 0.25rem 1rem rgba(102, 126, 234, 0.3);
-}
-
-/* Alternativa más específica para centrar mejor el rostro */
-.developer-image img {
-  width: 7.5rem;
-  height: 7.5rem;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center 20%; /* Centra horizontalmente y posiciona el 20% desde arriba */
-  border: 0.25rem solid #667eea;
-  box-shadow: 0 0.25rem 1rem rgba(102, 126, 234, 0.3);
-}
-
-/* Si quieres ajustar individualmente cada imagen según sea necesario */
-.developer-image img[src*="Ricardo"] {
-  object-position: center 15%;
-}
-
-.developer-image img[src*="Sergi"] {
-  object-position: center 10%;
-}
-
-.developer-image img[src*="Carlos"] {
-  object-position: center 20%;
-}
-
-.developer-image img[src*="Jesus"] {
-  object-position: center 30%;
-}
-
-.developer-image img[src*="Eva"] {
-  object-position: center 0%;
-}
-
-/* Para imágenes de Unsplash (que tienen URLs específicas) */
-.developer-image img[src*="unsplash"] {
-  object-position: center 25%;
 }

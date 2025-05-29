@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import './About.css';
 
@@ -57,7 +56,7 @@ const About = () => {
       role: "Backend Developer",
       description: "Desarrolladora de sistemas backend y networking. Maneja toda la infraestructura servidor y conectividad multijugador.",
       speciality: "Backend & Networking",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=300&fit=crop&crop=face",
+      image: "/src/assets/Imagenes/Miguel.jpg",
       skills: ["C#", "Networking", "Database", "Cloud Services"]
     },
     {
