@@ -1,5 +1,8 @@
+
 import { useState } from 'react';
 import './About.css';
+
+// Importar todas las imágenes locales
 
 const About = () => {
   const developers = [
@@ -9,7 +12,7 @@ const About = () => {
       role: "Lead Developer",
       speciality: "Unity 3D & Architecture",
       description: "Especialista en arquitectura de sistemas y optimización de rendimiento en Unity. Más de 5 años liderando proyectos de videojuegos.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+      image: "/src/assets/Imagenes/Ricardo.jpg",
       skills: ["Unity 3D", "C#", "Performance Optimization", "Team Leadership"]
     },
     {
@@ -27,7 +30,7 @@ const About = () => {
       role: "Gameplay Developer",
       description: "Desarrollador enfocado en mecánicas de juego y sistemas de gameplay. Experto en crear experiencias de juego fluidas y divertidas.",
       speciality: "Game Mechanics & Systems",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
+      image: "/src/assets/Imagenes/Eva.JPG",
       skills: ["C#", "Game Design", "Physics", "AI Programming"]
     },
     {
@@ -41,11 +44,11 @@ const About = () => {
     },
     {
       id: 5,
-      name: "Sergio Roldan",
+      name: "Sergio Roldan Ibañez",
       role: "Graphics Developer",
       description: "Experto en shaders, iluminación y efectos visuales. Responsable de que nuestros juegos tengan el mejor aspecto visual posible.",
       speciality: "Shaders & Visual Effects",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
+      image: "/src/assets/Imagenes/Sergi.jpg",
       skills: ["HLSL", "Shaders", "VFX", "Lighting"]
     },
     {
@@ -63,7 +66,7 @@ const About = () => {
       role: "Audio Developer",
       description: "Especialista en sistemas de audio y sonido interactivo. Crea experiencias sonoras inmersivas para nuestros proyectos.",
       speciality: "Audio Systems & Design",
-      image: "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=300&h=300&fit=crop&crop=face",
+      image: "/src/assets/Imagenes/Carlos.png",
       skills: ["Unity Audio", "Wwise", "Sound Design", "Music Integration"]
     },
     {
@@ -72,7 +75,7 @@ const About = () => {
       role: "Quality Assurance",
       description: "Responsable de testing y control de calidad. Se asegura de que cada juego que desarrollamos cumpla con los más altos estándares.",
       speciality: "Testing & Quality Control",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face",
+      image: "/src/assets/Imagenes/Jesus.jpg",
       skills: ["Manual Testing", "Automated Testing", "Bug Tracking", "Quality Standards"]
     }
   ];
@@ -140,39 +143,41 @@ const About = () => {
           </div>
 
           <div className="about-text">
-            <p className="description">
-              Somos un equipo de <strong>8 desarrolladores apasionados</strong> por la creación de videojuegos y experiencias interactivas. 
-              Especializados en <strong>Unity y C#</strong>, combinamos creatividad técnica con innovación para dar vida a proyectos únicos 
-              que desafían los límites de lo posible en el mundo digital.
-            </p>
-            <div className="team-stats">
-              <div className="stat-item">
-                <span className="stat-number">8</span>
-                <span className="stat-label">Desarrolladores</span>
+            <div className="about-card">
+              <p className="description">
+                Somos un equipo de <strong>8 desarrolladores apasionados</strong> por la creación de videojuegos y experiencias interactivas. 
+                Especializados en <strong>Unity y C#</strong>, combinamos creatividad técnica con innovación para dar vida a proyectos únicos 
+                que desafían los límites de lo posible en el mundo digital.
+              </p>
+              <div className="team-stats">
+                <div className="stat-item">
+                  <span className="stat-number">8</span>
+                  <span className="stat-label">Desarrolladores</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-number">Unity</span>
+                  <span className="stat-label">Motor Principal</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-number">C#</span>
+                  <span className="stat-label">Lenguaje Core</span>
+                </div>
               </div>
-              <div className="stat-item">
-                <span className="stat-number">Unity</span>
-                <span className="stat-label">Motor Principal</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">C#</span>
-                <span className="stat-label">Lenguaje Core</span>
-              </div>
-            </div>
-            <div className="skills-section">
-              <h3 className="skills-title">Stack tecnológico:</h3>
-              <div className="skills-container">
-                {[
-                  'Unity 3D', 
-                  'C#', 
-                  'UI/UX', 
-                  'Git',  
-                  'Mobile Dev'
-                ].map((skill) => (
-                  <span key={skill} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
+              <div className="skills-section">
+                <h3 className="skills-title">Stack tecnológico:</h3>
+                <div className="skills-container">
+                  {[
+                    'Unity 3D', 
+                    'C#', 
+                    'UI/UX', 
+                    'Git',  
+                    'Mobile Dev'
+                  ].map((skill) => (
+                    <span key={skill} className="skill-tag">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

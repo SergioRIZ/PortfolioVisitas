@@ -281,3 +281,50 @@
     font-size: 1rem;
   }
 }
+
+.developer-image img {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top; /* Centra horizontalmente y posiciona en la parte superior */
+  border: 0.25rem solid #667eea;
+  box-shadow: 0 0.25rem 1rem rgba(102, 126, 234, 0.3);
+}
+
+/* Alternativa más específica para centrar mejor el rostro */
+.developer-image img {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%; /* Centra horizontalmente y posiciona el 20% desde arriba */
+  border: 0.25rem solid #667eea;
+  box-shadow: 0 0.25rem 1rem rgba(102, 126, 234, 0.3);
+}
+
+/* Si quieres ajustar individualmente cada imagen según sea necesario */
+.developer-image img[src*="Ricardo"] {
+  object-position: center 15%;
+}
+
+.developer-image img[src*="Sergi"] {
+  object-position: center 10%;
+}
+
+.developer-image img[src*="Carlos"] {
+  object-position: center 20%;
+}
+
+.developer-image img[src*="Jesus"] {
+  object-position: center 30%;
+}
+
+.developer-image img[src*="Eva"] {
+  object-position: center 0%;
+}
+
+/* Para imágenes de Unsplash (que tienen URLs específicas) */
+.developer-image img[src*="unsplash"] {
+  object-position: center 25%;
+}
