@@ -1,10 +1,8 @@
-import { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './About.css';
 
-// Importar todas las imágenes locales
-
 const About = () => {
-  const developers = [
+  const developers = useMemo(() => [
     {
       id: 1,
       name: "Ricardo Cidoncha",
@@ -48,7 +46,7 @@ const About = () => {
       description: "Desarrollador con experiencia en React y Unity. Crear interfaces web interactivas y sistemas de visitas virtuales 360º.",
       speciality: "React & Unity",
       image: "/src/assets/Imagenes/Sergi.jpg",
-      skills: ["React","JavaScript","HTML5","CSS","Github","Unity","C#"]
+      skills: ["React", "JavaScript", "HTML5", "CSS", "Github", "Unity", "C#"]
     },
     {
       id: 6,
@@ -77,10 +75,10 @@ const About = () => {
       image: "/src/assets/Imagenes/Jesus.jpg",
       skills: ["Manual Testing", "Automated Testing", "Bug Tracking", "Quality Standards"]
     }
-  ];
+  ], []);
 
   const [currentDeveloper, setCurrentDeveloper] = useState(0);
-
+  
   const nextDeveloper = () => {
     setCurrentDeveloper((prev) => (prev + 1) % developers.length);
   };
@@ -90,15 +88,20 @@ const About = () => {
   };
 
   const developer = developers[currentDeveloper];
+  const stackTechnologies = useMemo(() => [
+    'Unity 3D', 'C#', 'HLSL Shaders', 'UI/UX Design', 
+    'Git', 'Mobile Dev', 'Audio Systems'
+  ], []);
 
   return (
     <section id="about" className="about-section">
       <div className="container">
         <h2 className="section-title">Sobre nosotros</h2>
         <div className="about-content">
+          {/* Carousel Section */}
           <div className="about-image">
-            <div className="developer-carousel">
-              <button className="nav-arrow nav-arrow-left" onClick={prevDeveloper}>
+            <div className="developer-carousel glass-card">
+              <button className="nav-arrow" onClick={prevDeveloper} aria-label="Desarrollador anterior">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
                 </svg>
@@ -110,12 +113,12 @@ const About = () => {
                 </div>
                 <div className="developer-info">
                   <h3 className="developer-name">{developer.name}</h3>
-                  <p className="developer-role">{developer.role}</p>
+                  <p className="developer-role gradient-text--primary">{developer.role}</p>
                   <p className="developer-speciality">{developer.speciality}</p>
                   <p className="developer-description">{developer.description}</p>
                   <div className="developer-skills">
                     {developer.skills.map((skill) => (
-                      <span key={skill} className="skill-badge">
+                      <span key={skill} className="skill-tag skill-tag--purple">
                         {skill}
                       </span>
                     ))}
@@ -123,7 +126,7 @@ const About = () => {
                 </div>
               </div>
 
-              <button className="nav-arrow nav-arrow-right" onClick={nextDeveloper}>
+              <button className="nav-arrow" onClick={nextDeveloper} aria-label="Siguiente desarrollador">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
                 </svg>
@@ -136,18 +139,21 @@ const About = () => {
                   key={index}
                   className={`indicator ${index === currentDeveloper ? 'active' : ''}`}
                   onClick={() => setCurrentDeveloper(index)}
+                  aria-label={`Ver desarrollador ${index + 1}`}
                 />
               ))}
             </div>
           </div>
 
+          {/* About Text Section */}
           <div className="about-text">
-            <div className="about-card">
+            <div className="about-card glass-card">
               <p className="description">
                 Somos un equipo encargado en la creación de experiencias inmersivas y visitas virtuales 360º. 
                 Transformamos espacios reales en recorridos digitales interactivos, combinando tecnología de vanguardia 
                 con diseño intuitivo para ofrecer experiencias únicas que conectan a las personas con lugares increíbles desde cualquier parte del mundo.
               </p>
+              
               <div className="team-stats">
                 <div className="stat-item">
                   <span className="stat-number">8</span>
@@ -162,19 +168,12 @@ const About = () => {
                   <span className="stat-label">Proyectos</span>
                 </div>
               </div>
+              
               <div className="skills-section">
                 <h3 className="skills-title">Stack tecnológico:</h3>
                 <div className="skills-container">
-                  {[
-                    'Unity 3D', 
-                    'C#', 
-                    'HLSL Shaders',
-                    'UI/UX Design', 
-                    'Git',  
-                    'Mobile Dev',
-                    'Audio Systems'
-                  ].map((skill) => (
-                    <span key={skill} className="skill-tag">
+                  {stackTechnologies.map((skill) => (
+                    <span key={skill} className="skill-tag skill-tag--cyan">
                       {skill}
                     </span>
                   ))}
@@ -184,8 +183,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-
     </section>
   );
 };
