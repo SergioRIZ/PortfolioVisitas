@@ -73,15 +73,6 @@ const Projects = () => {
                     </ul>
                   </div>
                 )}
-
-                <div className="project-links">
-                  <button className="project-btn primary">
-                    Ver proyecto completo
-                  </button>
-                  <button className="project-btn secondary">
-                    Código fuente
-                  </button>
-                </div>
               </div>
             </div>
           ))}

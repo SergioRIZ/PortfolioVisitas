@@ -43,13 +43,6 @@
   align-items: stretch;
 }
 
-.about-image,
-.about-text {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-}
-
 .about-text{
 display: flex;
 flex-direction: column;
@@ -210,7 +203,6 @@ height: 94.4%;
 .developer-image img[src*="Ricardo"],
 .developer-image img[src*="Eva"],
 .developer-image img[src*="Pedro"],
-.developer-image img[src*="Sergi"],
 .developer-image img[src*="Miguel"] { 
   object-position: center 15%; 
 }
