@@ -2,41 +2,64 @@ import React, { useEffect, useState } from 'react';
 import './Header.css';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isNavVisible, setIsNavVisible] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(false);
 
   useEffect(() => {
+    // Escuchar el evento de reset desde el Navbar
+    const handleReset = () => {
+      setIsVisible(true);
+      setHasScrolled(false);
+      setIsAutoScrolling(false);
+    };
+
+    window.addEventListener('resetHeader', handleReset);
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Detectar si hemos pasado del header original (umbral de scroll)
-      const scrollThreshold = 50; // Ajusta este valor según necesites
+      // No hacer nada si estamos en un auto-scroll
+      if (isAutoScrolling) return;
       
-      if (currentScrollY > scrollThreshold) {
-        setIsScrolled(true);
-        setIsNavVisible(true);
-      } else {
-        setIsScrolled(false);
-        setIsNavVisible(false);
+      // Detectar el primer scroll manual
+      if (currentScrollY > 0 && !hasScrolled) {
+        setHasScrolled(true);
+        setIsVisible(false);
+        setIsAutoScrolling(true);
+        
+        // Hacer scroll automático a la sección "About" después de que el header desaparezca
+        setTimeout(() => {
+          // Buscar específicamente la sección about
+          const aboutSection = document.querySelector('#about');
+          
+          if (aboutSection) {
+            // Calcular la posición exacta del título "Sobre nosotros"
+            const rect = aboutSection.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const targetPosition = rect.top + scrollTop;
+            
+            window.scrollTo({ 
+              top: targetPosition,
+              behavior: 'smooth' 
+            });
+            
+            // Después del auto-scroll, permitir scroll manual de nuevo
+            setTimeout(() => {
+              setIsAutoScrolling(false);
+            }, 1000);
+          } else {
+            setIsAutoScrolling(false);
+          }
+        }, 600);
       }
       
-      // Lógica para ocultar/mostrar el nav fijo cuando scrolleamos hacia abajo/arriba
-      // Solo aplicamos esta lógica cuando ya estamos en modo scrolled
-      if (currentScrollY > scrollThreshold) {
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          // Scrolleando hacia abajo - ocultar nav
-          setIsNavVisible(false);
-        } else if (currentScrollY < lastScrollY) {
-          // Scrolleando hacia arriba - mostrar nav
-          setIsNavVisible(true);
-        }
-      }
-      
-      setLastScrollY(currentScrollY);
+      // Una vez que el usuario ha hecho scroll, el header permanece oculto
+      // Solo se reactiva si refrescas la página o recargas el componente
+      // O si le das al boton de inicio en el Navbar
     };
 
-    // Añadir el event listener con throttling para mejor performance
+    // Throttling para mejor performance
     let ticking = false;
     const throttledScroll = () => {
       if (!ticking) {
@@ -52,41 +75,24 @@ const Header = () => {
 
     return () => {
       window.removeEventListener('scroll', throttledScroll);
+      window.removeEventListener('resetHeader', handleReset);
     };
-  }, [lastScrollY]);
+  }, [hasScrolled, isAutoScrolling]);
 
   return (
-    <>
-      {/* Header original - se oculta completamente cuando isScrolled es true */}
-      <header className={`header ${isScrolled ? 'header-hidden' : ''}`}>
-        <div className="container">
-          <h1 className="main-title">
-            <span className="typing" data-text="Visitas Virtuales 360º">
-              Visitas Virtuales 360º
-            </span>
-          </h1>
+    <header className={`header ${!isVisible ? 'header-hidden' : ''}`}>
+      <div className="container">
+        <h1 className="main-title">
+          <span className="typing" data-text="Visitas Virtuales 360º">
+            Visitas Virtuales 360º
+          </span>
+        </h1>
 
-          <div className="header-buttons">
-            {/* Aquí puedes añadir tus botones */}
-          </div>
-        </div>
-      </header>
-
-      {/* Header fijo - aparece cuando hacemos scroll */}
-      <div className={`fixed-header ${isScrolled && isNavVisible ? 'active' : ''}`}>
-        <div className="fixed-header-container">
-          <div className="fixed-header-content">
-            <h2 className="fixed-title">Visitas Virtuales 360º</h2>
-            <nav className="fixed-nav">
-              <a href="#inicio" className="nav-link">Inicio</a>
-              <a href="#servicios" className="nav-link">Servicios</a>
-              <a href="#galeria" className="nav-link">Galería</a>
-              <a href="#contacto" className="nav-link">Contacto</a>
-            </nav>
-          </div>
-        </div>
+        <p className="subtitle">
+          Explora espacios como nunca antes con nuestra tecnología de vanguardia
+        </p>
       </div>
-    </>
+    </header>
   );
 };
 
