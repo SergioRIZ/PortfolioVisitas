@@ -19,8 +19,8 @@ const About = () => {
       role: "UI/UX Developer",
       description: "Experta en interfaces de usuario e interacción. Crea experiencias visuales intuitivas y atractivas para nuestros juegos.",
       speciality: "Interface Design & UX",
-      image: "https://www.linkedin.com/in/pedro-correas/",
-      linkedin: "", // Añade la URL real
+      image: "/src/assets/Imagenes/Pedro.png",
+      linkedin: "https://www.linkedin.com/in/pedro-correas/", // Añade la URL real
       skills: ["UI Design", "UX Research", "Unity UI", "Figma"]
     },
     {
