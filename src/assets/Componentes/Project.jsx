@@ -1,4 +1,5 @@
 import './Project.css';
+import UnityProject from './Project360';
 
 const Projects = () => {
   const projects = [
@@ -9,6 +10,7 @@ const Projects = () => {
     }
   ];
 
+
   return (
     <section id="projects" className="projects-section">
       <div className="container">
@@ -17,7 +19,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div key={index} className="project-card">
               <div className="project-image">
-                <span>Imagen y link del proyecto</span>
+                <UnityProject/>
               </div>
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
@@ -30,6 +32,7 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="project-links">
+                
                 </div>
               </div>
             </div>
