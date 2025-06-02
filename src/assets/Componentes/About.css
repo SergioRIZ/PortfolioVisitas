@@ -84,13 +84,14 @@ height: 94.4%;
 /* === CAROUSEL === */
 .developer-carousel {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
   position: relative;
 }
 
 .nav-arrow {
+  align-self: center;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -197,6 +198,7 @@ height: 94.4%;
     0 8px 30px rgba(139, 92, 246, 0.4),
     0 0 0 4px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .developer-image img:hover {
@@ -204,35 +206,6 @@ height: 94.4%;
   box-shadow: 
     0 12px 40px rgba(139, 92, 246, 0.6),
     0 0 0 4px rgba(255, 255, 255, 0.2);
-}
-
-/* Ajustes específicos para imágenes */
-.developer-image img[src*="Ricardo"],
-.developer-image img[src*="Eva"],
-.developer-image img[src*="Pedro"],
-.developer-image img[src*="Sergi"],
-.developer-image img[src*="Miguel"] { 
-  object-position: center 15%; 
-}
-
-.developer-image img[src*="Manu"] { 
-  object-position: center 75%; 
-}
-
-.developer-image img[src*="Sergi"] { 
-  object-position: center 10%; 
-}
-
-.developer-image img[src*="Carlos"] { 
-  object-position: center 20%; 
-}
-
-.developer-image img[src*="Jesus"] { 
-  object-position: center 30%; 
-}
-
-.developer-image img[src*="unsplash"] { 
-  object-position: center 25%; 
 }
 
 /* === DEVELOPER INFO === */

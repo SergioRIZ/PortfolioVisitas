@@ -85,7 +85,7 @@ const About = () => {
     }
   ], []);
 
-  const [currentDeveloper, setCurrentDeveloper] = useState(0);
+  const [currentDeveloper, setCurrentDeveloper] = useState(() => Math.floor(Math.random() * 8));
   
   const nextDeveloper = () => {
     setCurrentDeveloper((prev) => (prev + 1) % developers.length);
