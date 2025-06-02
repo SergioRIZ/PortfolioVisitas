@@ -43,13 +43,6 @@
   align-items: stretch;
 }
 
-.about-image,
-.about-text {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-}
-
 .about-text{
 display: flex;
 flex-direction: column;

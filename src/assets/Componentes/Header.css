@@ -11,6 +11,29 @@
   to   { width: 22ch; }
 }
 
+/* Typing para primera línea del subtítulo */
+@keyframes typing-subtitle-line1 {
+  from { width: 0; }
+  to   { width: 31ch; } /* "Explora espacios como nunca antes" */
+}
+
+/* Typing para segunda línea del subtítulo */
+@keyframes typing-subtitle-line2 {
+  from { width: 0; }
+  to   { width: 38ch; } /* "con nuestra tecnología de vanguardia" */
+}
+
+/* Animación para ocultar el cursor */
+@keyframes hide-caret {
+  to { border-right-color: transparent; }
+}
+
+/* Aparición del subtítulo */
+@keyframes subtitle-appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -123,21 +146,61 @@
   -webkit-text-fill-color: transparent;
   animation:
     typing 2.5s steps(22, end) 0.5s forwards,
-    blink-caret 1s step-end infinite 0.5s;
+    blink-caret 1s step-end infinite 0.5s,
+    hide-caret 0.1s 3.0s forwards; /* Oculta el cursor al finalizar */
 }
 
 /* ————————————— Subtítulo moderno ————————————— */
 .subtitle {
   font-size: clamp(1.1rem, 3vw, 1.6rem);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 3rem;
   padding: 0 1rem;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  animation: fadeInUp 1s ease-out 0.3s both;
+  display: block;
+}
+
+/* Primera línea del subtítulo */
+.subtitle-line1 {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 3px solid rgba(100, 255, 218, 0.8);
+  background: linear-gradient(135deg, #64ffda, #48bbff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation:
+    subtitle-appear 0s 3.0s forwards,
+    typing-subtitle-line1 2s steps(31, end) 3.2s forwards, /* Ajustado a 31 caracteres */
+    blink-caret 1s step-end infinite 3.2s,
+    hide-caret 0.01s 5.19s forwards; /* Termina a los 5.2s */
+}
+
+/* Segunda línea del subtítulo */
+.subtitle-line2 {
+  display: block; /* Cambio a block para que vaya abajo */
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 3px solid rgba(100, 255, 218, 0.8);
+  background: linear-gradient(135deg, #64ffda, #48bbff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  margin: 0 auto; /* Centrar la línea */
+  text-align: center; /* Centrar el texto */
+  animation:
+    subtitle-appear 0s 5.2s forwards, /* Empieza inmediatamente después */
+    typing-subtitle-line2 2.5s steps(38, end) 5.2s forwards, /* Ajustado a 38 caracteres */
+    blink-caret 1s step-end infinite 5.2s,
+    hide-caret 0.1s 7.7s forwards; /* Oculta cursor al finalizar */
 }
 
 /* ————————————— Elementos decorativos ————————————— */
@@ -167,6 +230,26 @@
     font-size: clamp(1rem, 3vw, 1.4rem);
     margin-bottom: 2.5rem;
   }
+  
+  /* Ajustar animaciones en tablet */
+  .subtitle-line1 {
+    animation:
+      subtitle-appear 0s 3.0s forwards,
+      typing-subtitle-line1 1.8s steps(31, end) 3.2s forwards, /* Ajustado */
+      blink-caret 1s step-end infinite 3.2s,
+      hide-caret 0.01s 4.99s forwards; /* Termina a los 5.0s */
+  }
+  
+  .subtitle-line2 {
+    display: block; /* También en tablet */
+    margin: 0 auto; /* Centrar en tablet */
+    text-align: center; /* Centrar el texto en tablet */
+    animation:
+      subtitle-appear 0s 5.0s forwards, /* Empieza inmediatamente */
+      typing-subtitle-line2 2.2s steps(38, end) 5.0s forwards, /* Ajustado */
+      blink-caret 1s step-end infinite 5.0s,
+      hide-caret 0.1s 7.2s forwards;
+  }
 }
 
 @media (max-width: 768px) {
@@ -190,17 +273,24 @@
     padding: 0 1rem;
   }
   
-  .header-buttons {
-    gap: 1rem;
-    flex-direction: column;
-    align-items: center;
+  /* Ajustar animaciones en móvil */
+  .subtitle-line1 {
+    animation:
+      subtitle-appear 0s 3.0s forwards,
+      typing-subtitle-line1 1.5s steps(31, end) 3.2s forwards, /* Ajustado */
+      blink-caret 1s step-end infinite 3.2s,
+      hide-caret 0.01s 4.69s forwards; /* Termina a los 4.7s */
   }
   
-  .btn {
-    padding: 0.875rem 2rem;
-    font-size: 0.95rem;
-    width: 100%;
-    max-width: 280px;
+  .subtitle-line2 {
+    display: block; /* También en móvil */
+    margin: 0 auto; /* Centrar en móvil */
+    text-align: center; /* Centrar el texto en móvil */
+    animation:
+      subtitle-appear 0s 4.7s forwards, /* Empieza inmediatamente */
+      typing-subtitle-line2 2s steps(38, end) 4.7s forwards, /* Ajustado */
+      blink-caret 1s step-end infinite 4.7s,
+      hide-caret 0.1s 6.7s forwards;
   }
 }
 
@@ -224,7 +314,6 @@
     margin-bottom: 1.5rem;
     line-height: 1.5;
   }
-
 }
 
 @media (max-width: 320px) {
