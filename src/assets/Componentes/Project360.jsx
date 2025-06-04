@@ -99,22 +99,36 @@ const UnityProject = () => {
                             matchWebGLToCanvasSize={true}
                             style={{ 
                                 width: "100%", 
-                                height: "400px",
+                                height: "600px", // Aumentado de 400px a 600px
                                 borderRadius: isFullscreen ? "0" : "8px",
                                 transition: "border-radius 0.3s ease"
                             }}
                         />
                         
                         {isLoaded && (
-                            <div className={`unity-controls ${isFullscreen ? "fullscreen-mode" : ""}`}>
-                                <button 
-                                    className="control-btn fullscreen-btn"
-                                    onClick={handleFullscreen}
-                                    title="Pantalla completa"
-                                >
-                                    {isFullscreen ? "Salir de pantalla completa" : "Pantalla completa"}
-                                </button>
-                            </div>
+                            <button 
+                                className="fullscreen-icon-btn"
+                                onClick={handleFullscreen}
+                                title={isFullscreen ? "Salir de pantalla completa" : "Pantalla completa"}
+                            >
+                                {isFullscreen ? (
+                                    // Ícono para salir de pantalla completa
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <polyline points="4,14 10,14 10,20"></polyline>
+                                        <polyline points="20,10 14,10 14,4"></polyline>
+                                        <line x1="14" y1="10" x2="21" y2="3"></line>
+                                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                                    </svg>
+                                ) : (
+                                    // Ícono para pantalla completa
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <polyline points="9,21 3,21 3,15"></polyline>
+                                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                                    </svg>
+                                )}
+                            </button>
                         )}
 
                         {isFullscreen && (
