@@ -302,7 +302,7 @@
 /* Estilos mejorados para el componente Projects */
 .projects-section {
   padding: 100px 0;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #2d1b69 100%);
   position: relative;
   min-height: 100vh;
 }
@@ -315,9 +315,9 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 219, 226, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.03) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(75, 0, 130, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
 }
 
 .section-title {
@@ -340,7 +340,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #78dbe2, #ff77c6);
+  background: linear-gradient(90deg, #8a2be2, #9370db);
   border-radius: 2px;
 }
 
@@ -367,13 +367,13 @@
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  border-color: rgba(120, 219, 226, 0.3);
+  border-color: rgba(138, 43, 226, 0.4);
 }
 
 .project-image {
   width: 100%;
   min-height: 600px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
   position: relative;
 }
 
