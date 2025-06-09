@@ -6,9 +6,6 @@ const About = () => {
     {
       id: 1,
       name: "Ricardo Cidoncha",
-      role: "Lead Developer",
-      speciality: "Unity 3D & Architecture",
-      description: "Especialista en arquitectura de sistemas y optimización de rendimiento en Unity. Más de 5 años liderando proyectos de videojuegos.",
       image: "/src/assets/Imagenes/Ricardo.jpg",
       linkedin: "https://www.linkedin.com/in/ricardo-cidoncha-morejon-469532364/", 
       skills: ["Unity 3D", "C#", "Performance Optimization", "Team Leadership"]
@@ -16,9 +13,6 @@ const About = () => {
     {
       id: 2,
       name: "Pedro Correas",
-      role: "UI/UX Developer",
-      description: "Experta en interfaces de usuario e interacción. Crea experiencias visuales intuitivas y atractivas para nuestros juegos.",
-      speciality: "Interface Design & UX",
       image: "/src/assets/Imagenes/Pedro.jpg",
       linkedin: "https://www.linkedin.com/in/pedro-correas/", 
       skills: ["UI Design", "UX Research", "Unity UI", "Figma"]
@@ -26,9 +20,6 @@ const About = () => {
     {
       id: 3,
       name: "Eva Gomez",
-      role: "Gameplay Developer",
-      description: "Desarrollador enfocado en mecánicas de juego y sistemas de gameplay. Experto en crear experiencias de juego fluidas y divertidas.",
-      speciality: "Game Mechanics & Systems",
       image: "/src/assets/Imagenes/Eva.JPG",
       linkedin: "https://www.linkedin.com/in/evaglop/", 
       skills: ["C#", "Game Design", "Physics", "AI Programming"]
@@ -36,9 +27,6 @@ const About = () => {
     {
       id: 4,
       name: "Manu Lopez",
-      role: "Mobile Developer",
-      description: "Especialista en desarrollo móvil y optimización multiplataforma. Asegura que nuestros juegos funcionen perfectamente en todos los dispositivos.",
-      speciality: "Mobile & Cross-platform",
       image: "/src/assets/Imagenes/Manu.jpg",
       linkedin: "https://www.linkedin.com/in/manuel-l%C3%B3pez-de-la-cruz-24a17066/", 
       skills: ["Mobile Development", "Cross-platform", "Performance", "Unity Cloud Build"]
@@ -56,9 +44,6 @@ const About = () => {
     {
       id: 6,
       name: "Miguel Rubio",
-      role: "Backend Developer",
-      description: "Desarrolladora de sistemas backend y networking. Maneja toda la infraestructura servidor y conectividad multijugador.",
-      speciality: "Backend & Networking",
       image: "/src/assets/Imagenes/Miguel.jpg",
       linkedin: "https://www.linkedin.com/in/miguel-rubio-villena-7aa02313a/",
       skills: ["C#", "Networking", "Database", "Cloud Services"]
@@ -66,9 +51,6 @@ const About = () => {
     {
       id: 7,
       name: "Carlos Ruiz",
-      role: "Audio Developer",
-      description: "Especialista en sistemas de audio y sonido interactivo. Crea experiencias sonoras inmersivas para nuestros proyectos.",
-      speciality: "Audio Systems & Design",
       image: "/src/assets/Imagenes/Carlos.png",
       linkedin: "https://www.linkedin.com/in/carlos-ruiz-b59010319/",
       skills: ["Unity Audio", "Wwise", "Sound Design", "Music Integration"]
@@ -76,9 +58,6 @@ const About = () => {
     {
       id: 8,
       name: "Jesus Sanchez",
-      role: "Quality Assurance",
-      description: "Responsable de testing y control de calidad. Se asegura de que cada juego que desarrollamos cumpla con los más altos estándares.",
-      speciality: "Testing & Quality Control",
       image: "/src/assets/Imagenes/Jesus.jpg",
       linkedin: "https://www.linkedin.com/in/jesus-sanchez-noriega/",
       skills: ["Manual Testing", "Automated Testing", "Bug Tracking", "Quality Standards"]
